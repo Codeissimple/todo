@@ -1,3 +1,15 @@
 const form = document.getElementById("form");
 const input = document.getElementById("input");
-const tasks = document.getElementById("task-container");
+const taskList = document.getElementById("task-container");
+let tasks = {};
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log("button clicked");
+  });
+
+
+
+let newTask = () => {
+    newTask["text"] = input.value;
+    console.log(newTask);
+};
