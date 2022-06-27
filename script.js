@@ -3,10 +3,11 @@ const input = document.getElementById("input");
 const taskList = document.getElementById("task-container");
 let tasks = {};
 
-form.addEventListener("submit", function(event){
-    event.preventDefault();
+form.addEventListener("submit", function(e){
+    e.preventDefault();
     console.log("button clicked");
   });
+
 
 /*
 
