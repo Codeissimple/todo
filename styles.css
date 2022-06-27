@@ -16,7 +16,7 @@ body {
     cursor: pointer;
   }
 
-  .task-container div {
+  #task-container div {
     display: flex;
     align-items: center;
     justify-content: space-between;
