@@ -6,15 +6,20 @@ let tasks = [];
 
 form.addEventListener("submit", function(e){
     e.preventDefault();
-    newTask();
+    addTask();
     console.log("button clicked");
     form.reset();
   });
 
+function addTask(){
+  if(input.value != ""){
+    const newTask = {
+      text,
+      checked: false,
+      id: Date.now(),
+    };
 
-
-let newTask = () => {
-    newTask["text"] = input.value;
-    tasks.push("newTask");
     console.log(tasks);
-};
+  }
+}
+
