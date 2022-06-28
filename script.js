@@ -20,8 +20,12 @@ function addTask(){
     };
 
     tasks.push(newTask);
-    console.log(newTask);
+
+
     console.log(tasks);
   }
 }
 
+function addTask(newTask) {
+
+}
