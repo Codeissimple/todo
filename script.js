@@ -14,16 +14,16 @@ form.addEventListener("submit", function(e){
   });
 
 
-function addTask(newtask){
+function addTask(newtask){//newtask is the input
   const taskInstance = document.createElement("li");
   const checkButton = document.createElement("div");
-  const taskText = document.createElement("span");
+  const taskText = document.createElement("span");//This is body of the task
 
   taskInstance.setAttribute("class", "");
   checkButton.setAttribute("class", "");
   taskText.setAttribute("class", "");
 
-  taskText.innerText = newtask;
+  taskText.innerText = newtask;//I'm passing the input into innerText(?)
   taskList.appendChild(taskInstance);
   taskInstance.appendChild(checkButton);
   taskInstance.appendChild(taskText);
