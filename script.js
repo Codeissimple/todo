@@ -7,13 +7,13 @@ let tasks = [];
 form.addEventListener("submit", function(e){
     e.preventDefault();
     var newInput = input.value;
-    addTask(newInput.value);  
-    console.log(input.value);
-    console.log("button clicked");
+    addTask(newInput.value); 
+    console.log(tasks);
+
     form.reset();
   });
 
-  
+
 function addTask(newtask){
   const taskInstance = document.createElement("li");
   const checkButton = document.createElement("div");
@@ -27,5 +27,6 @@ function addTask(newtask){
   taskList.appendChild(taskInstance);
   taskInstance.appendChild(checkButton);
   taskInstance.appendChild(taskText);
+  tasks.push(taskInstance);
 
 }
