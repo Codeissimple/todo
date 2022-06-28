@@ -1,17 +1,19 @@
 const form = document.getElementById("form");
-const input = document.getElementById("input");
+const inputValue = document.getElementById("input");
 const taskList = document.getElementById("taskList");
 
 let tasks = [];
 
 form.addEventListener("submit", function(e){
     e.preventDefault();
-    addTask(input.value);
+    addTask(input.value);  //Here I take the user input.
+    console.log(input.value);
     console.log("button clicked");
     form.reset();
   });
-
-function addTask(newTask){
+//Here I am pasting the user input into the addTask() function, but 
+//it reads "null"(?)
+function addTask(e){
   const taskInstance = document.createElement("li");
   const checkButton = document.createElement("div");
   const taskText = document.createElement("span");
@@ -20,8 +22,8 @@ function addTask(newTask){
   checkButton.setAttribute("class", "");
   taskText.setAttribute("class", "");
 
-  taskText.innerText = newTask;
-  taskList.appendChild(newTask);
+  taskText.innerText = e;
+  taskList.appendChild(taskInstance);
   taskInstance.appendChild(checkButton);
   taskInstance.appendChild(taskText);
 
