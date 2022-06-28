@@ -14,11 +14,13 @@ form.addEventListener("submit", function(e){
 function addTask(){
   if(input.value != ""){
     const newTask = {
-      text,
+      newTask: input.value,
       checked: false,
       id: Date.now(),
     };
 
+    tasks.push(newTask);
+    console.log(newTask);
     console.log(tasks);
   }
 }
