@@ -7,13 +7,13 @@ let tasks = [];
 form.addEventListener("submit", function(e){
     e.preventDefault();
     var newInput = input.value;
-    addTask(newInput.value);  //Here I take the user input.
+    addTask(newInput.value);  
     console.log(input.value);
     console.log("button clicked");
     form.reset();
   });
-//Here I am pasting the user input into the addTask() function, but 
-//it reads "null"(?)
+
+  
 function addTask(newtask){
   const taskInstance = document.createElement("li");
   const checkButton = document.createElement("div");
