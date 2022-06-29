@@ -19,6 +19,7 @@ function addTask(newTask){
   let checkButton = document.createElement("INPUT");
   let taskText = document.createElement("span");
   let deleteButton = document.createElement("button");
+ 
 
 
 
@@ -26,9 +27,10 @@ function addTask(newTask){
   
   taskText.setAttribute("class", "task-body");
   checkButton.setAttribute("type", "checkbox");
-  checkButton.setAttribute("class", "");
-  deleteButton.setAttribute("class", "");
-
+  checkButton.setAttribute("class", "pointer");
+  deleteButton.setAttribute("class", "delButton");
+  
+  deleteButton.innerText = "X";
   taskText.innerText = newTask;
 
   taskInstance.appendChild(checkButton);
