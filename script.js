@@ -20,8 +20,7 @@ function addTask(newTask){
   let taskText = document.createElement("span");
   let deleteButton = document.createElement("button");
 
-  //have to figure out a way to place all elements inside the div. I don't see the use for 
-  //the tasklist DIV. May be I have to get rid of it and 
+
 
   taskInstance.setAttribute("class", "");
   
@@ -34,9 +33,11 @@ function addTask(newTask){
 
   taskInstance.appendChild(checkButton);
   taskInstance.appendChild(taskText);
-  taskList.appendChild(checkButton);
-  taskList.appendChild(taskText);
-  taskList.appendChild(deleteButton);
+  taskInstance.appendChild(deleteButton);
+  taskList.appendChild(taskInstance);
+  //taskList.appendChild(checkButton);
+  //taskList.appendChild(taskText);
+  //taskList.appendChild(deleteButton);
   tasks.push(taskInstance);
 
 }
