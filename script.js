@@ -7,7 +7,7 @@ let tasks = [];
 form.addEventListener("submit", function(e){
     e.preventDefault();
     var newInput = input.value;
-    addTask(newInput); 
+    addTask(newInput); //needs input validation
     console.log(tasks);
 
     form.reset();
@@ -23,8 +23,6 @@ function addTask(newTask){
   let taskDiv = document.createElement("div");
   let taskContainer = document.createElement("div");
 
-
-
   taskInstance.setAttribute("class", "");
   
   taskText.setAttribute("class", "task-body");
@@ -38,21 +36,12 @@ function addTask(newTask){
   deleteButton.innerText = "X";
   taskText.innerText = newTask;
 
-  
   taskDiv.appendChild(checkButton);
   taskDiv.appendChild(taskText);
-  //taskInstance.appendChild(checkButton);
-  //taskInstance.appendChild(taskText);
-  //taskInstance.appendChild(taskDiv);
   delDiv.appendChild(deleteButton);
-  //taskInstance.appendChild(delDiv);
   taskContainer.appendChild(taskDiv);
   taskContainer.appendChild(delDiv);
   taskList.appendChild(taskContainer);
 
-  //taskList.appendChild(checkButton);
-  //taskList.appendChild(taskText);
-  //taskList.appendChild(deleteButton);
   tasks.push(taskInstance);
-
 }
