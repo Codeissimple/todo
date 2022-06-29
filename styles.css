@@ -42,6 +42,7 @@ body {
 
   #taskList {
     width: 500px;
+    height: fit-content;
     border-style: dotted;
     border-color: blue;
     border-width: 5px;
@@ -66,6 +67,7 @@ body {
     border: 2px solid black;
     size: 10px;
     padding: 3px 3px;
+    margin-bottom: 10px;
     
     align-self: right;
     border-radius: 50%;
@@ -86,3 +88,35 @@ body {
   .pointer {
     cursor: pointer;  
   }
+
+  .delDiv {
+    height: fit-content;
+    border-style: dashed;
+    border-color: red;
+    display: flex;
+    
+    /* */
+    width: 10%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+
+  }
+
+  .taskDiv {
+    display: flex;
+    align-self: flex-start;
+    border-style: dashed;
+    border-color: #4CAF50;
+    /*  */
+    width: 70%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+  }
+
+  .taskContainer {
+    border: 3px solid #fff;
+    padding: 20px;
+  }
+
