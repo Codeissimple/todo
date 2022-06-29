@@ -27,3 +27,6 @@ body {
     gap: 25px;
   }
   
+  .task-body {
+    display: block;
+  }

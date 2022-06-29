@@ -7,26 +7,29 @@ let tasks = [];
 form.addEventListener("submit", function(e){
     e.preventDefault();
     var newInput = input.value;
-    addTask(newInput.value); 
+    addTask(newInput); 
     console.log(tasks);
 
     form.reset();
   });
 
 
-function addTask(newtask){//newtask is the input
-  const taskInstance = document.createElement("li");
-  const checkButton = document.createElement("div");
-  const taskText = document.createElement("span");//This is body of the task
+function addTask(newTask){
+  let taskInstance = document.createElement("li");
+  let checkButton = document.createElement("INPUT");
+  let taskText = document.createElement("span");
+  
 
   taskInstance.setAttribute("class", "");
-  checkButton.setAttribute("class", "");
-  taskText.setAttribute("class", "");
+  checkButton.setAttribute("type", "checkbox");
+  taskText.setAttribute("class", "task-body");
 
-  taskText.innerText = newtask;//I'm passing the input into innerText(?)
-  taskList.appendChild(taskInstance);
+  taskText.innerText = newTask;
+
   taskInstance.appendChild(checkButton);
   taskInstance.appendChild(taskText);
+  taskList.appendChild(checkButton);
+  taskList.appendChild(taskText);
   tasks.push(taskInstance);
 
 }
