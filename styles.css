@@ -22,11 +22,21 @@ body {
     justify-content: space-between;
   }
   
-  .options {
-    display: flex;
-    gap: 25px;
-  }
+
   
   .task-body {
+    display: inline-flex;
+  }
+
+  #task-container{
     display: block;
+    border-style: dashed;
+    border-color: blueviolet;
+    border-width: 5px;
+  }
+
+  #taskList {
+    border-style: dashed;
+    border-color: blue;
+    border-width: 5px;
   }
