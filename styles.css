@@ -41,7 +41,17 @@ body {
   }
 
   #taskList {
+    width: 700px;
     border-style: dotted;
     border-color: blue;
     border-width: 5px;
+  }
+
+  .push-down {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding: 5px;
+    background-color: #cae8ca;
+    border: 2px solid #4CAF50;
   }
