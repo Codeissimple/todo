@@ -1,6 +1,7 @@
 body {
     font-family: sans-serif;
     margin: 50px 50px;
+    justify-content: center;
   }
   
   #container {
@@ -15,13 +16,14 @@ body {
   .material-icons {
     cursor: pointer;
   }
-
+/*
   #task-container div {
     display: flex;
+    
     align-items: center;
     justify-content: space-between;
   }
-  
+  */
 
   
   .task-body {
@@ -29,14 +31,17 @@ body {
   }
 
   #task-container{
-    display: block;
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 33.333333%;
     border-style: dashed;
     border-color: blueviolet;
     border-width: 5px;
   }
 
   #taskList {
-    border-style: dashed;
+    border-style: dotted;
     border-color: blue;
     border-width: 5px;
   }
