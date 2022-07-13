@@ -54,7 +54,9 @@ function addTask(newTask){
   taskList.addEventListener("click", function(e){
     console.log(e.target);
     if(e.target.classList.contains("delButton")){
-      taskObject.remove()
+      taskDiv.remove();
+      delDiv.remove(); 
+      taskContainer.remove();
     }
   });
 }
