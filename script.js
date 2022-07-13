@@ -1,6 +1,7 @@
 var form = document.getElementById("form");
 const inputValue = document.getElementById("input");
 const taskList = document.getElementById("taskList");
+const taskObject = document.querySelector("task-instance-class");
 
 let tasks = [];
 
@@ -18,12 +19,15 @@ function addTask(newTask){
   let taskInstance = document.createElement("li");
   let checkButton = document.createElement("INPUT");
   let taskText = document.createElement("span");
-  let deleteButton = document.createElement("button");
+  let deleteButton = document.createElement("button");//
+  //
   let delDiv = document.createElement("div");
   let taskDiv = document.createElement("div");
   let taskContainer = document.createElement("div");
 
-  taskInstance.setAttribute("class", "");
+  taskInstance.setAttribute("class", "task-instance-class");
+
+  
   
   taskText.setAttribute("class", "task-body");
   checkButton.setAttribute("type", "checkbox");
@@ -41,7 +45,17 @@ function addTask(newTask){
   delDiv.appendChild(deleteButton);
   taskContainer.appendChild(taskDiv);
   taskContainer.appendChild(delDiv);
+  taskInstance.appendChild(taskContainer);
+
   taskList.appendChild(taskContainer);
 
   tasks.push(taskInstance);
+
+  taskList.addEventListener("click", function(e){
+    console.log(e.target);
+    if(e.target.classList.contains("delButton")){
+      taskObject.remove()
+    }
+  });
 }
+
