@@ -16,46 +16,14 @@ form.addEventListener("submit", function(e){
 
 
 function addTask(newTask){
-  let taskInstance = document.createElement("li");
-  let checkButton = document.createElement("INPUT");
-  let taskText = document.createElement("span");
-  let deleteButton = document.createElement("button");//
-  //
-  let delDiv = document.createElement("div");
-  let taskDiv = document.createElement("div");
-  let taskContainer = document.createElement("div");
+  const myTask = new Object();
 
-  taskInstance.setAttribute("class", "task-instance-class");
-  
-  taskText.setAttribute("class", "task-body");
-  checkButton.setAttribute("type", "checkbox");
-  checkButton.setAttribute("class", "pointer");
-  deleteButton.setAttribute("class", "delButton");
-  delDiv.setAttribute("class", "delDiv");
-  taskDiv.setAttribute("class", "taskDiv");
-  taskContainer.setAttribute("class", "taskContainer");
-  
-  deleteButton.innerText = "X";
-  taskText.innerText = newTask;
+  myTask.text = newTask;
+  myTask.id = Date.now() + Math.random();
+  myTask.completed = false;
 
-  taskDiv.appendChild(checkButton);
-  taskDiv.appendChild(taskText);
-  delDiv.appendChild(deleteButton);
-  taskContainer.appendChild(taskDiv);
-  taskContainer.appendChild(delDiv);
-  taskInstance.appendChild(taskContainer);
+  tasks.push(myTask);
+  console.log(tasks);
 
-  taskList.appendChild(taskContainer);
-
-  tasks.push(taskInstance);
-
-  taskList.addEventListener("click", function(e){
-    console.log(e.target);
-    if(e.target.classList.contains("delButton")){
-      taskDiv.remove();
-      delDiv.remove(); 
-      taskContainer.remove();
-    }
-  });
 }
 
