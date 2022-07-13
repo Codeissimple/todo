@@ -16,14 +16,26 @@ form.addEventListener("submit", function(e){
 
 
 function addTask(newTask){
-  const myTask = new Object();
+  function addItem() {
+    let newEntry = document.createElement("li");
+    let completeButton = document.createElement("button");
+    let taskText = newTask;
+    let deleteButton = document.createElement("button");
 
-  myTask.text = newTask;
-  myTask.id = Date.now() + Math.random();
-  myTask.completed = false;
 
-  tasks.push(myTask);
-  console.log(tasks);
+    newEntry.innerHTML = newTask;
+    completeButton.innerHTML = "Check";
+    deleteButton.innerHTML = "X";
+    
+    newEntry.appendChild(completeButton, deleteButton);
 
+    taskList.appendChild(newEntry);
+
+    //document.getElementById("")
+
+    tasks.push(newEntry);
+    console.log(tasks);
+
+
+  }
 }
-
