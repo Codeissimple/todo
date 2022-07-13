@@ -26,8 +26,6 @@ function addTask(newTask){
   let taskContainer = document.createElement("div");
 
   taskInstance.setAttribute("class", "task-instance-class");
-
-  
   
   taskText.setAttribute("class", "task-body");
   checkButton.setAttribute("type", "checkbox");
