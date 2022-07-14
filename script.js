@@ -31,7 +31,7 @@ function addTask(newTask){
 
     taskList.appendChild(newEntry);
 
-    //document.getElementById("")
+    
 
     tasks.push(newEntry);
     console.log(tasks);
