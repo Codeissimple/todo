@@ -9,33 +9,34 @@ form.addEventListener("submit", function(e){
     e.preventDefault();
     var newInput = input.value;
     addTask(newInput); //needs input validation
-    console.log(tasks);
-
     form.reset();
   });
 
 
 function addTask(newTask){
-  function addItem() {
     let newEntry = document.createElement("li");
-    let completeButton = document.createElement("button");
+    let completeButton = document.createElement("input");
     let taskText = newTask;
     let deleteButton = document.createElement("button");
 
+    completeButton.setAttribute(`type`, `checkbox`);
 
     newEntry.innerHTML = newTask;
     completeButton.innerHTML = "Check";
     deleteButton.innerHTML = "X";
     
-    newEntry.appendChild(completeButton, deleteButton);
+    newEntry.appendChild(deleteButton);
+    newEntry.prepend(completeButton);
 
     taskList.appendChild(newEntry);
-
-    
 
     tasks.push(newEntry);
     console.log(tasks);
 
 
+    deleteButton.addEventListener('click', function(e){
+      console.log(e.target);
+      e.target.parentElement.remove();
+    })
+
   }
-}
