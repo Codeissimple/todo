@@ -30,13 +30,17 @@ function addTask(newTask){
 
     taskList.appendChild(newEntry);
 
-    tasks.push(newEntry);
+    tasks.push(newEntry.innerHTML);
     console.log(tasks);
+
 
 
     deleteButton.addEventListener('click', function(e){
       console.log(e.target);
       e.target.parentElement.remove();
+
     })
 
   }
+
+
