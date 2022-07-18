@@ -33,7 +33,9 @@ function addTask(newTask){
     tasks.push({"taskName": newTask, "isCompleted": false});
     console.log(tasks);
 
-
+    completeButton.addEventListener('click', function(e){
+      newTask.setAttribute('class', 'completed');
+    })
 
     deleteButton.addEventListener('click', function(e){
       console.log(e.target);
@@ -41,7 +43,7 @@ function addTask(newTask){
       
     })
     localStorage.setItem("tasks", JSON.stringify(tasks));
-
   }
 
+  
   
