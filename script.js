@@ -30,7 +30,7 @@ function addTask(newTask){
 
     taskList.appendChild(newEntry);
 
-    tasks.push(newEntry.innerHTML);
+    tasks.push({"taskName": newTask, "isCompleted": false});
     console.log(tasks);
 
 
@@ -38,9 +38,10 @@ function addTask(newTask){
     deleteButton.addEventListener('click', function(e){
       console.log(e.target);
       e.target.parentElement.remove();
-
+      
     })
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 
   }
 
-
+  
