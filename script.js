@@ -31,8 +31,7 @@ function addTask(newTask){
 
     taskList.appendChild(newEntry);
 
-    tasks.push({"taskName": newTask, "isCompleted": false});
-    console.log(tasks);
+
 
     completeButton.addEventListener('click', function(e){
       if(newEntry.classList.contains("completed")){
@@ -47,6 +46,13 @@ function addTask(newTask){
       e.target.parentElement.remove();
       
     })
+
+/*NOTES: I assign blanket value of FALSE to the isCompleted 
+quality. How do I assign the value to the isCompleted depending on whether the COMPLETED class is or is not attached to the task?
+*/
+
+    tasks.push({"taskName": newTask, "isCompleted": false});
+    console.log(tasks);
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }
 
