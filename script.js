@@ -35,9 +35,11 @@ function addTask(newTask){
     console.log(tasks);
 
     completeButton.addEventListener('click', function(e){
-      
-      newEntry.setAttribute('class', 'completed');
-  
+      if(newEntry.classList.contains("completed")){
+        newEntry.classList.remove('completed');
+      }else{
+        newEntry.setAttribute('class', 'completed');
+      }
     })
 
     deleteButton.addEventListener('click', function(e){
