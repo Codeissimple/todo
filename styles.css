@@ -65,6 +65,10 @@ body {
     transition-duration: 0.4s;
   }
 
+  .completed{
+    text-decoration: line-through;
+  }
+
   .delButton:hover {
     background-color: red; 
     color: white;

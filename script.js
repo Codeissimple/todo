@@ -20,6 +20,7 @@ function addTask(newTask){
     let deleteButton = document.createElement("button");
 
     completeButton.setAttribute(`type`, `checkbox`);
+    completeButton === false;
 
     newEntry.innerHTML = newTask;
     completeButton.innerHTML = "Check";
@@ -34,7 +35,9 @@ function addTask(newTask){
     console.log(tasks);
 
     completeButton.addEventListener('click', function(e){
-      newTask.setAttribute('class', 'completed');
+      
+      newEntry.setAttribute('class', 'completed');
+  
     })
 
     deleteButton.addEventListener('click', function(e){
