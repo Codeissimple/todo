@@ -51,7 +51,7 @@ function addTask(newTask){
 quality. How do I assign the value to the isCompleted depending on whether the COMPLETED class is or is not attached to the task?
 */
 
-    tasks.push({"taskName": newTask, "isCompleted": false});
+    //tasks.push({"taskName": newTask, "isCompleted": false});
     console.log(tasks);
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }
