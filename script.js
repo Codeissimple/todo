@@ -30,10 +30,10 @@ function createTask(newTask){
 
     taskList.innerHTML = "";
     array.forEach(function(element, index)  {
-      let newEntry = `<li><input type='checkbox' ${element.completed ? 'checked' : null}>${element.taskName}<button></button></li>`;
+      let newEntry = `<li><input type='checkbox' ${element.completed ? 'checked' : null}>${element.taskName}<button id='deleteButton'>X</button></li>`;//button ID added
       taskList.innerHTML += newEntry;
     });
-    
+
   }
 
   taskList.addEventListener('click', function(e){
@@ -41,8 +41,7 @@ function createTask(newTask){
     
     
     tasks.forEach(element => {
-     // console.log(item);
-     // console.log(`element taskName ${element.taskName}`);
+
       if(element.taskName === item){
         element.completed = !element.completed;
         console.log('taskName: ' + element.taskName);
@@ -51,6 +50,14 @@ function createTask(newTask){
 
     });
     console.log(tasks);
+  })
+
+//trying to create a delete Button listener
+deleteButton = document.getElementById('deleteButton');
+  deleteButton.addEventListener('click', function(e){
+    
+    console.log(e.target);
+   deleteButton.target.parentElement.remove();
   })
 
 
