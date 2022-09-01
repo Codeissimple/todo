@@ -41,6 +41,7 @@ function createTask(newTask){
       //console.log(item, element.taskName);
       if(element.taskName === item){
         element.completed = !element.completed;
+
         if(e.target.classList.contains('buttonDelete')){
           tasks.splice(index, 1);
           console.log(`splice ${tasks}`);
@@ -52,11 +53,10 @@ function createTask(newTask){
     });
     //console.log(tasks);
   })
-/*
+  
   let deleteButton = document.querySelector('.buttonDelete');
 
   deleteButton.addEventListener('click', function(event){
     event.target.parentElement.remove();
     console.log(event.target.parentElement);
   })
-  */
