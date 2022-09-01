@@ -5,7 +5,7 @@ const taskObject = document.querySelector("task-instance-class");
 
 let tasks;
 tasks = localStorage.getItem('localTasks') ?  JSON.parse(localStorage.getItem('localTasks')) : tasks = [];
-console.log('tasks');
+//console.log('tasks');
 renderList(tasks);
 
 form.addEventListener("submit", function(e){
@@ -26,11 +26,9 @@ function createTask(newTask){
 
   function renderList(array){
 
-
-
     taskList.innerHTML = "";
     array.forEach(function(element, index)  {
-      let newEntry = `<li><input type='checkbox' ${element.completed ? 'checked' : null}>${element.taskName}<button id='deleteButton'>X</button></li>`;//button ID added
+      let newEntry = `<li><input type='checkbox' ${element.completed ? 'checked' : null}>${element.taskName}<button class='buttonDelete'>X</button></li>`;
       taskList.innerHTML += newEntry;
     });
 
@@ -39,28 +37,26 @@ function createTask(newTask){
   taskList.addEventListener('click', function(e){
     let item = e.target.parentElement.innerText;
     
-    
-    tasks.forEach(element => {
-
+    tasks.forEach((element,index) => {
+      //console.log(item, element.taskName);
       if(element.taskName === item){
         element.completed = !element.completed;
-        console.log('taskName: ' + element.taskName);
+        if(e.target.classList.contains('buttonDelete')){
+          tasks.splice(index, 1);
+          console.log(`splice ${tasks}`);
+  //need to render again after the delete button.
+        }
         localStorage.setItem('localTasks', JSON.stringify(tasks));
       }
 
     });
-    console.log(tasks);
+    //console.log(tasks);
   })
+/*
+  let deleteButton = document.querySelector('.buttonDelete');
 
-//trying to create a delete Button listener
-deleteButton = document.getElementById('deleteButton');
-  deleteButton.addEventListener('click', function(e){
-    
-    console.log(e.target);
-   deleteButton.target.parentElement.remove();
+  deleteButton.addEventListener('click', function(event){
+    event.target.parentElement.remove();
+    console.log(event.target.parentElement);
   })
-
-
-
-  
-  
+  */
