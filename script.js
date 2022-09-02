@@ -21,6 +21,7 @@ function createTask(newTask){
   return{
     taskName: newTask,
     completed: false,
+    id: Date.now()
   }
   }
 
@@ -28,12 +29,31 @@ function createTask(newTask){
 
     taskList.innerHTML = "";
     array.forEach(function(element, index)  {
-      let newEntry = `<li><input type='checkbox' ${element.completed ? 'checked' : null}>${element.taskName}<button class='buttonDelete'>X</button></li>`;
+      let newEntry = `<li><input type='checkbox' class='checkBox' ${element.completed ? 'checked' : null}>${element.taskName}<button class='buttonDelete'>X</button></li>${element.id}`;
       taskList.innerHTML += newEntry;
+      
     });
 
   }
 
+
+  taskList.addEventListener('click', event => {
+    if (event.target.classList.contains('checkBox')) {
+      const itemKey = event.target.parentElement;
+      //toggleDone(itemKey);
+      console.log(itemKey);
+    }
+    
+    if (event.target.classList.contains('buttonDelete')) {
+      const itemKey = event.target.parentElement;
+      //deleteTodo(itemKey);
+      console.log(itemKey);
+    }
+  });
+
+
+
+/*
   taskList.addEventListener('click', function(e){
     let item = e.target.parentElement.innerText;
     
@@ -41,7 +61,6 @@ function createTask(newTask){
       //console.log(item, element.taskName);
       if(element.taskName === item){
         element.completed = !element.completed;
-
         if(e.target.classList.contains('buttonDelete')){
           tasks.splice(index, 1);
           console.log(`splice ${tasks}`);
@@ -49,14 +68,28 @@ function createTask(newTask){
         }
         localStorage.setItem('localTasks', JSON.stringify(tasks));
       }
-
     });
+  
     //console.log(tasks);
   })
-  
-  let deleteButton = document.querySelector('.buttonDelete');
+  */
 
-  deleteButton.addEventListener('click', function(event){
+
+
+
+
+
+
+
+ /* 
+  let deleteButtons = document.querySelectorAll('.buttonDelete');
+
+deleteButtons.forEach((element) => {
+  element.addEventListener('click', function(event){
+
     event.target.parentElement.remove();
-    console.log(event.target.parentElement);
+    localStorage.removeItem('localTasks', JSON.stringify(element));
+
   })
+});
+*/
