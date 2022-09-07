@@ -51,7 +51,15 @@ function createTask(newTask){
     }
   });
 
-
+  function deleteTodo(key) {
+    const index = taskList.findIndex(item => item.id === Number(key));
+    const todo = {
+      deleted: true,
+      ...taskList[index]
+    };
+    tasks = tasks.filter(item => item.id !== Number(key));
+    renderTodo(todo);
+  }
 
 /*
   taskList.addEventListener('click', function(e){
