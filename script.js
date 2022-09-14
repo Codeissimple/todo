@@ -7,7 +7,7 @@ const localStorageTasks = JSON.parse(localStorage.getItem(''))
 
 //separate eventListeners from the functions to simplify code
 myForm.addEventListener('submit', addTask);
-myTaskList.addEventListener('click', toggleTask);
+
 
 //Calling function that's going to display tasks
 renderTasks();
@@ -16,7 +16,9 @@ function addTask(element) {
   element.preventDefault();
   const taskText = this.querySelector('[name=input]').value;
   const task = {
-    taskText, done:false, ID: Date.now
+    taskText, 
+    done:false, 
+    ID: Date.now()
   }
   console.log(taskText);
 
@@ -33,12 +35,24 @@ function push2Local() {
 }
 
 function renderTasks() {
+  let taskArray = localStorage.getItem('tasks',JSON.stringify(localStorageTasks));
   
-}
+  let taskDisplayUL = document.getElementById('tasklist');
+
+
+  tasks.forEach(display);
+  function display(element) {
+    let newEntry = `<li><input type='checkbox' ${element.completed ? 'checked' : null}>${element.taskName}<button class='buttonDelete'>X</button></li>`;
+  console.log(newEntry);      
+    }
+    taskDisplayUL.append(newEntry);
 
 
 
+  };
 
-function toggleTask(){
 
-};
+  
+      
+
+
