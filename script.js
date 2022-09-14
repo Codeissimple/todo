@@ -1,103 +1,44 @@
-const form = document.getElementById("form");
-const input = document.getElementById("input");
-const taskList = document.getElementById("taskList");
-const taskObject = document.querySelector("task-instance-class");
+//minimum of what I need to grab from DOM
+const myForm = document.querySelector('form');
+const myTaskList = document.querySelector('tasklist');
+const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-let tasks;
-tasks = localStorage.getItem('localTasks') ?  JSON.parse(localStorage.getItem('localTasks')) : tasks = [];
-//console.log('tasks');
-renderList(tasks);
+const localStorageTasks = JSON.parse(localStorage.getItem(''))
 
-form.addEventListener("submit", function(e){
-    e.preventDefault();
-    let newInput = input.value;
-    tasks.push(createTask(newInput))
-    localStorage.setItem('localTasks', JSON.stringify(tasks));
-    renderList(tasks);
-    form.reset();
-  });
+//separate eventListeners from the functions to simplify code
+myForm.addEventListener('submit', addTask);
+myTaskList.addEventListener('click', toggleTask);
 
-function createTask(newTask){
-  return{
-    taskName: newTask,
-    completed: false,
-    id: Date.now()
+//Calling function that's going to display tasks
+renderTasks();
+
+function addTask(element) {
+  element.preventDefault();
+  const taskText = this.querySelector('[name=input]').value;
+  const task = {
+    taskText, done:false, ID: Date.now
   }
-  }
+  console.log(taskText);
 
-  function renderList(array){
+  tasks.push(task);
+  push2Local();
+  renderTasks();
 
-    taskList.innerHTML = "";
-    array.forEach(function(element, index)  {
-      let newEntry = `<li><input type='checkbox' class='checkBox' ${element.completed ? 'checked' : null}>${element.taskName}<button class='buttonDelete'>X</button></li>${element.id}`;
-      taskList.innerHTML += newEntry;
-      
-    });
+  this.reset();
 
-  }
+}
 
+function push2Local() {
+  localStorage.setItem('tasks',JSON.stringify(localStorageTasks));
+}
 
-  taskList.addEventListener('click', event => {
-    if (event.target.classList.contains('checkBox')) {
-      const itemKey = event.target.parentElement;
-      //toggleDone(itemKey);
-      console.log(itemKey);
-    }
-    
-    if (event.target.classList.contains('buttonDelete')) {
-      const itemKey = event.target.parentElement;
-      //deleteTodo(itemKey);
-      console.log(itemKey);
-    }
-  });
-
-  function deleteTodo(key) {
-    const index = taskList.findIndex(item => item.id === Number(key));
-    const todo = {
-      deleted: true,
-      ...taskList[index]
-    };
-    tasks = tasks.filter(item => item.id !== Number(key));
-    renderTodo(todo);
-  }
-
-/*
-  taskList.addEventListener('click', function(e){
-    let item = e.target.parentElement.innerText;
-    
-    tasks.forEach((element,index) => {
-      //console.log(item, element.taskName);
-      if(element.taskName === item){
-        element.completed = !element.completed;
-        if(e.target.classList.contains('buttonDelete')){
-          tasks.splice(index, 1);
-          console.log(`splice ${tasks}`);
-  //need to render again after the delete button.
-        }
-        localStorage.setItem('localTasks', JSON.stringify(tasks));
-      }
-    });
+function renderTasks() {
   
-    //console.log(tasks);
-  })
-  */
+}
 
 
 
 
+function toggleTask(){
 
-
-
-
- /* 
-  let deleteButtons = document.querySelectorAll('.buttonDelete');
-
-deleteButtons.forEach((element) => {
-  element.addEventListener('click', function(event){
-
-    event.target.parentElement.remove();
-    localStorage.removeItem('localTasks', JSON.stringify(element));
-
-  })
-});
-*/
+};
