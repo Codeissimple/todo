@@ -1,6 +1,6 @@
 //minimum of what I need to grab from DOM
 const myForm = document.querySelector('form');
-const myTaskList = document.querySelector('tasklist');
+const myTaskList = document.querySelector('taskList');
 const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
 const localStorageTasks = JSON.parse(localStorage.getItem(''))
@@ -37,15 +37,16 @@ function push2Local() {
 function renderTasks() {
   let taskArray = localStorage.getItem('tasks',JSON.stringify(localStorageTasks));
   
-  let taskDisplayUL = document.getElementById('tasklist');
+  let taskDisplayUL = document.getElementById('taskList');
 
 
   tasks.forEach(display);
   function display(element) {
     let newEntry = `<li><input type='checkbox' ${element.completed ? 'checked' : null}>${element.taskName}<button class='buttonDelete'>X</button></li>`;
-  console.log(newEntry);      
+  console.log(newEntry); 
+  taskDisplayUL.append(newEntry);     
     }
-    taskDisplayUL.append(newEntry);
+    
 
 
 
