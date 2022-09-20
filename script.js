@@ -101,12 +101,8 @@ const delButton = document.getElementsByClassName('delButton');
 
 
 myTaskList.addEventListener("click", function(event) {
-  
-    //var IDinterest
-    //for loop element.id == event.target.parentNode.id
-    //remove element()
 
-    let IDinterest = parseInt(event.target.parentNode.id, 10)
+    let IDinterest = parseInt(event.target.parentNode.id, 10);
       console.log(IDinterest);
       console.log('tasks reachable');
     for(i = 0; i < tasks.length; i++){
