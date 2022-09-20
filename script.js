@@ -57,7 +57,7 @@ function renderTasks() {
 console.log('RENDER');
 let taskArray = localStorage.getItem('tasks',JSON.stringify(tasks));
 
-console.log(localStorage.getItem('tasks'));
+//console.log(localStorage.getItem('tasks'));
 
   if(localStorage.getItem('tasks') === null) {
       tasks = [];
@@ -65,7 +65,7 @@ console.log(localStorage.getItem('tasks'));
       taskArray = JSON.parse(localStorage.getItem('tasks'));
   
       taskArray.forEach(task => {
-          console.log(task.taskText)
+          //console.log(task.taskText)
           let newEntry = document.createElement('li');
           newEntry.innerHTML = task.taskText;
           newEntry.done = false;
@@ -106,7 +106,7 @@ myTaskList.addEventListener("click", function(event) {
     //for loop element.id == event.target.parentNode.id
     //remove element()
 
-    let IDinterest = Number(event.target.parentNode.id)
+    let IDinterest = parseInt(event.target.parentNode.id, 10)
       console.log(IDinterest);
       console.log('tasks reachable');
     for(i = 0; i < tasks.length; i++){
