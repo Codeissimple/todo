@@ -15,14 +15,14 @@ function addTask(element) {
   const task = {
     taskText, 
     done: false, 
-    ID: Date.now()
+    id: Date.now()
   }
 
 //creating li element
   let newEntry = document.createElement('li');
     newEntry.innerHTML = task.taskText;
     newEntry.done = false;
-    newEntry.setAttribute('id',task.ID);
+    newEntry.setAttribute('id',task.id);
 
 //creating checkbox element
   let checkbox = document.createElement('input');
@@ -69,7 +69,7 @@ console.log(localStorage.getItem('tasks'));
           let newEntry = document.createElement('li');
           newEntry.innerHTML = task.taskText;
           newEntry.done = false;
-          newEntry.setAttribute('id',task.ID);
+          newEntry.setAttribute('id',task.id);
       
       
       //creating checkbox element
@@ -101,19 +101,14 @@ const delButton = document.getElementsByClassName('delButton');
 
 
 myTaskList.addEventListener("click", function(event) {
-  const targetTagToLowerCase = event.target.tagName.toLowerCase();
-  if (targetTagToLowerCase === "li") {
-    event.target.style.textDecoration = "line-through";
-    console.log(target);
-  } else if (targetTagToLowerCase === "button") {
-    event.target.parentNode.remove();
+  
     //var IDinterest
     //for loop element.id == event.target.parentNode.id
     //remove element()
 
-    let IDinterest = event.target.parentNode.id
+    let IDinterest = Number(event.target.parentNode.id)
       console.log(IDinterest);
-      console.log('tasks reachable', tasks);
+      console.log('tasks reachable');
     for(i = 0; i < tasks.length; i++){
       console.log(tasks[i]);
       if(IDinterest === tasks[i].id){
@@ -121,6 +116,13 @@ myTaskList.addEventListener("click", function(event) {
         console.log('aye, aye ', tasks[i]);
       }
     }
+
+    const targetTagToLowerCase = event.target.tagName.toLowerCase();
+  if (targetTagToLowerCase === "li") {
+    event.target.style.textDecoration = "line-through";
+    console.log(target);
+  } else if (targetTagToLowerCase === "button") {
+    event.target.parentNode.remove();
 
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }
