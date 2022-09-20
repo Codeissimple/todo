@@ -74,6 +74,7 @@ body {
     background-color: red; 
     color: white;
     cursor: pointer;
+    border-radius: 5px;
   }
 
   .pointer {

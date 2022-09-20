@@ -22,7 +22,7 @@ function addTask(element) {
   let newEntry = document.createElement('li');
     newEntry.innerHTML = task.taskText;
     newEntry.done = false;
-    newEntry.ID = task.ID;
+    newEntry.setAttribute('id',task.ID);
 
 //creating checkbox element
   let checkbox = document.createElement('input');
@@ -30,7 +30,8 @@ function addTask(element) {
 
 //creating delete button
   let deleteButton = document.createElement('button')
-    deleteButton = 'X';
+    //deleteButton.innerText = 'X';
+    deleteButton.classList.add('delButton');
 
 
 // putting task visuals together
@@ -68,17 +69,18 @@ console.log(localStorage.getItem('tasks'));
           let newEntry = document.createElement('li');
           newEntry.innerHTML = task.taskText;
           newEntry.done = false;
-          newEntry.ID = task.ID;
+          newEntry.setAttribute('id',task.ID);
       
       
       //creating checkbox element
         let checkbox = document.createElement('input');
           checkbox.type = 'checkbox';
+          
       
       //creating delete button
-        let deleteButton = document.createElement('button')
-          deleteButton = 'X';
-          deleteButton.classList.add('delButton');
+      let deleteButton = document.createElement('button')
+      //deleteButton.innerText = 'X';
+      deleteButton.classList.add('delButton');
       
       
       // putting task visuals together
@@ -93,15 +95,37 @@ console.log(localStorage.getItem('tasks'));
 }
 };
 
-const li = document.getElementById('li');
-console.log(li);
-
-myTaskList.addEventListener('click', function deleteTask(){
-  console.log(this);
-}); 
+const delButton = document.getElementsByClassName('delButton');
+//console.log(delButton);
 
 
-  
-      
+
+myTaskList.addEventListener("click", function(event) {
+  const targetTagToLowerCase = event.target.tagName.toLowerCase();
+  if (targetTagToLowerCase === "li") {
+    event.target.style.textDecoration = "line-through";
+    console.log(target);
+  } else if (targetTagToLowerCase === "button") {
+    event.target.parentNode.remove();
+    //var IDinterest
+    //for loop element.id == event.target.parentNode.id
+    //remove element()
+
+    let IDinterest = event.target.parentNode.id
+      console.log(IDinterest);
+      console.log('tasks reachable', tasks);
+    for(i = 0; i < tasks.length; i++){
+      console.log(tasks[i]);
+      if(IDinterest === tasks[i].id){
+        //tasks.remove(tasks[i]);
+        console.log('aye, aye ', tasks[i]);
+      }
+    }
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+});
+
+
 
 
