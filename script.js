@@ -28,7 +28,7 @@ function addTask(element) {
     deleteButton.classList.add('delButton');
 
 // putting task visuals together
-  newEntry.prepend(checkbox);
+  
   newEntry.append(deleteButton);
 
   myTaskList.appendChild(newEntry);
